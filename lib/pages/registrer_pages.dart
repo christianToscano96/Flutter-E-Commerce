@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class RegistrerPage extends StatefulWidget{
   @override 
   RegistrerPageState createState() => RegistrerPageState();
@@ -13,7 +14,8 @@ class RegistrerPageState extends State<RegistrerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(horizontal: 40.0),
         child: Center(
           child: SingleChildScrollView(
            child: _inputsRegistrer(),
@@ -26,11 +28,10 @@ class RegistrerPageState extends State<RegistrerPage> {
 
 //widget 
   Widget _inputsRegistrer() {
-
     return Form(
               child: Column(
                 children: <Widget>[
-                  Text('REGISTER', style: TextStyle(fontSize: 40.0, color: Theme.of(context).primaryColor)),
+                  _logo(),                
                   Padding(padding: EdgeInsets.only(top: 20.0),
                     child: TextFormField(
                       decoration: InputDecoration(
@@ -45,6 +46,7 @@ class RegistrerPageState extends State<RegistrerPage> {
                   Padding(padding: EdgeInsets.only(top: 30.0),
                     child: TextFormField(
                       decoration: InputDecoration(
+                        enabled: false,
                         border: OutlineInputBorder(borderSide: BorderSide(color: Colors.pink) ,borderRadius: BorderRadius.circular(20.0) ),                     
                         labelText: 'Email',
                         labelStyle: TextStyle(color: Colors.pink, fontSize: 16.0),
@@ -56,6 +58,7 @@ class RegistrerPageState extends State<RegistrerPage> {
                   Padding(padding: EdgeInsets.only(top: 30.0),
                     child: TextFormField(
                       obscureText: true,
+                      autofocus: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(borderSide: BorderSide(color: Colors.pink) ,borderRadius: BorderRadius.circular(20.0) ),                     
                         labelText: 'Password',
@@ -69,14 +72,7 @@ class RegistrerPageState extends State<RegistrerPage> {
                     padding: EdgeInsets.only(top: 30.0),
                     child: Column(
                       children: <Widget>[
-                        RaisedButton(
-                          onPressed: () {},
-                          child: Text('Submit', style: TextStyle(color: Colors.white, fontSize: 16.0)),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(10.0)),                            
-                          ),
-                          color: Theme.of(context).primaryColor,
-                        ),
+                        _buttonSubmit(),
                         FlatButton(
                           child: Text('Existing user? Login'),
                           onPressed: (){},
@@ -88,4 +84,31 @@ class RegistrerPageState extends State<RegistrerPage> {
               ),
             );
   }
+    Widget _buttonSubmit() {
+      return Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: RaisedButton(                          
+                onPressed: () {},
+                child: Text('Submit', style: TextStyle(color: Colors.white, fontSize: 16.0)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),                            
+                ),
+                color: Theme.of(context).primaryColor,
+                autofocus: true,
+              ),
+            ),
+          ],
+        );
+    }
+    
+    Widget _logo() {
+     return Image.asset(
+       'assets/logo.png',
+        fit: BoxFit.cover,
+        height: 200.0,
+        semanticLabel: 'logoApp',
+     );
+    }
 }
