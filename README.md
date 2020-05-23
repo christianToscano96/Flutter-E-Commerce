@@ -1,5 +1,10 @@
 # ecommerce
 
+# Registrer Page
+<div align="center"> 
+     <img width="45%" src="screenshot/img1.png">      
+</div> 
+
 A new Flutter project.
 
 ## Getting Started
