@@ -16,7 +16,18 @@ class RegistrerPageState extends State<RegistrerPage> {
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: Center(
           child: SingleChildScrollView(
-            child: Form(
+           child: _inputsRegistrer(),
+          ),
+        ),
+      ),
+    );
+  }
+
+
+//widget 
+  Widget _inputsRegistrer() {
+
+    return Form(
               child: Column(
                 children: <Widget>[
                   Text('REGISTER', style: TextStyle(fontSize: 40.0, color: Theme.of(context).primaryColor)),
@@ -75,10 +86,6 @@ class RegistrerPageState extends State<RegistrerPage> {
                   ),
                 ],
               ),
-            ),
-          ),
-        ),
-      ),
-    );
+            );
   }
 }
